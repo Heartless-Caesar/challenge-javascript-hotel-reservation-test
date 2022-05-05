@@ -1,9 +1,7 @@
 import data from "./data";
 
-const weekDays = ["mon", "tues", "thurs", "fri"];
-const weekEnd = ["sat", "sun"];
-
 const getCheapestHotel = (input) => {
+  let counter = 0;
   //Regex para encontrar valores entre parenteses
   const regexDia = /\(([^()]*)\)/g;
 
@@ -17,7 +15,12 @@ const getCheapestHotel = (input) => {
   console.log(type);
   days.forEach((x) => {
     const matches = [...x.matchAll(regexDia)];
+    //Verificacao output dos dias
     console.log(Array.from(matches, (m) => m[1]));
+
+    //Dias "tipados" pra verificacao dos valores
+    const weekDays = /mon|tues|thurs|fri/;
+    const weekEnd = /sat|sun/;
   });
 };
 
