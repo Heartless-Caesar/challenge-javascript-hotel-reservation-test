@@ -12,6 +12,8 @@ const getCheapestHotel = (input) => {
 
   //Separa cada elemento separado para achar o dia entre parenteses
   console.log(clientType);
+
+  //Verificar o valor de cada dia
   days.forEach((x) => {
     const matches = [...x.matchAll(regexDia)];
 
@@ -59,6 +61,7 @@ const getCheapestHotel = (input) => {
             regularRidgewoodCounter
         );
         break;
+
       case "Rewards":
         let rewardsLakewoodCounter = 0;
         let rewardsRidgewoodCounter = 0;
