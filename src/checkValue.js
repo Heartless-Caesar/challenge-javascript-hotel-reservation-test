@@ -1,4 +1,9 @@
 const checkValue = (client, dayCheck, weekEndCheck, checkElement) => {
+  //Classificacao de cada hotel
+  const classLake = 3;
+  const classBridge = 4;
+  const classRidge = 5;
+
   switch (client) {
     case "Regular":
       let regularLakewoodCounter = 0;

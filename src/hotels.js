@@ -1,4 +1,3 @@
-import data from "./data";
 import checkValue from "./checkValue";
 
 const getCheapestHotel = (input) => {
