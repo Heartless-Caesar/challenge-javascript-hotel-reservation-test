@@ -41,7 +41,7 @@ const checkValue = (client, dayCheck, weekEndCheck, checkElement) => {
           regularRidgewoodCounter
       );
 
-      //Verificar se ha valores a pagar iguais e retor
+      //Verificar se ha valores a pagar iguais e retornar o de maior classificacao
       if (
         regularLakewoodCounter === regularBridgewoodCounter &&
         regularLakewoodCounter === regularRidgewoodCounter &&
