@@ -40,6 +40,15 @@ const checkValue = (client, dayCheck, weekEndCheck, checkElement) => {
           regularLakewoodCounter +
           regularRidgewoodCounter
       );
+
+      //Verificar se ha valores a pagar iguais e retor
+      if (
+        regularLakewoodCounter === regularBridgewoodCounter &&
+        regularLakewoodCounter === regularRidgewoodCounter &&
+        regularRidgewoodCounter === regularBridgewoodCounter
+      ) {
+        return "Ridgewood";
+      }
       break;
 
     case "Rewards":
