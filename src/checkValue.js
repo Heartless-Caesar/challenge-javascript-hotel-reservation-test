@@ -64,6 +64,21 @@ const checkValue = (client, dayCheck, weekEndCheck, checkElement) => {
       ) {
         return "Lakewood";
       }
+      //Retornando por maior classificacao quando iguais
+      //Bridgewood maior classificacao
+      if (
+        regularLakewoodCounter === regularBridgewoodCounter &&
+        regularLakewoodCounter < regularRidgewoodCounter
+      ) {
+        return "Bridgewood";
+      }
+      //Ridgewood maior classificacao
+      if (
+        regularBridgewoodCounter === regularRidgewoodCounter &&
+        regularRidgewoodCounter < regularLakewoodCounter
+      ) {
+        return "Ridgewood";
+      }
       break;
 
     case "Rewards":
