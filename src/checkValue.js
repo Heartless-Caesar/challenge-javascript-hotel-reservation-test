@@ -1,11 +1,13 @@
 const checkValue = (client, dayCheck, weekEndCheck, checkElement) => {
+  //Switch-case para verificar o tipo de cliente
   switch (client) {
     case "Regular":
+      //Contadores para registrarem os valores conforme o dia passado como argumento
       let regularLakewoodCounter = 0;
       let regularRidgewoodCounter = 0;
       let regularBridgewoodCounter = 0;
 
-      //Verifica se ha dias da semana
+      //Verifica se ha dias úteis da semana no ciclo de hospedagem
       let regularMatchWeekDay = dayCheck.test(checkElement);
 
       //Registra o valor total dos dias uteis de hospedagem
@@ -15,9 +17,7 @@ const checkValue = (client, dayCheck, weekEndCheck, checkElement) => {
         regularRidgewoodCounter += 220;
       }
 
-      /* 
-           Verifica se ha dias do final de semana
-           no ciclo de hospedagem                 */
+      // Verifica se ha dias do final de semana no ciclo de hospedagem
       let regularMatchWeekEnd = weekEndCheck.test(checkElement);
 
       /*
@@ -36,7 +36,7 @@ const checkValue = (client, dayCheck, weekEndCheck, checkElement) => {
           regularRidgewoodCounter
       );
 
-      //Verificar se ha valores a pagar iguais e retornar o de maior classificacao
+      //Verificar se todos os valores a pagar são iguais e retornar o de maior classificacao
       if (
         regularLakewoodCounter == regularBridgewoodCounter &&
         regularLakewoodCounter == regularRidgewoodCounter &&
@@ -45,19 +45,23 @@ const checkValue = (client, dayCheck, weekEndCheck, checkElement) => {
         return "Ridgewood";
       }
 
-      //Retornos em caso de serem menores
+      /* Retornos em caso de serem menores */
+
+      //Bridgewood como menor
       if (
         regularBridgewoodCounter < regularLakewoodCounter &&
         regularBridgewoodCounter < regularRidgewoodCounter
       ) {
         return "Bridgewood";
       }
+      //Ridgewood como menor
       if (
         regularRidgewoodCounter < regularLakewoodCounter &&
         regularRidgewoodCounter < regularBridgewoodCounter
       ) {
         return "Ridgewood";
       }
+      //Lakewood como menor
       if (
         regularLakewoodCounter < regularBridgewoodCounter &&
         regularLakewoodCounter < regularRidgewoodCounter
@@ -66,27 +70,41 @@ const checkValue = (client, dayCheck, weekEndCheck, checkElement) => {
       }
 
       //Retornando por maior classificacao quando iguais
-      //Bridgewood maior classificacao
+
+      /*     Lakewood é o de menor classificação logo não
+       tem como ter um caso em que seja o de menor classificação  */
+
+      //Bridgewood maior classificacao em relacao ao Lakewood
       if (
         regularLakewoodCounter == regularBridgewoodCounter &&
         regularBridgeCounter < regularRidgewoodCounter
       ) {
         return "Bridgewood";
       }
-      //Ridgewood maior classificacao
+
+      //Ridgewood maior classificacao em relacao ao Bridgewood
       if (
         regularBridgewoodCounter == regularRidgewoodCounter &&
         regularBridgewoodCounter < regularLakewoodCounter
       ) {
         return "Ridgewood";
       }
-      break;
+
+      //Ridgewood maior classificação em relação ao Lakewood
+      if (
+        rewardsLakewoodCounter == rewardsRidgewoodCounter &&
+        rewardsLakewoodCounter < rewardsBridgewoodCounter
+      ) {
+        return "Ridgewood";
+      }
 
     case "Rewards":
+      //Contadores para cliente do tipo Rewards
       let rewardsLakewoodCounter = 0;
       let rewardsRidgewoodCounter = 0;
       let rewardsBridgewoodCounter = 0;
-      //Verifica se ha dias da semana
+
+      //Verifica se ha dias úteis da semana como parametro
       let rewardsMatchWeekDay = dayCheck.test(checkElement);
 
       //Registra o valor total dos dias uteis de hospedagem
@@ -110,13 +128,76 @@ const checkValue = (client, dayCheck, weekEndCheck, checkElement) => {
         rewardsRidgewoodCounter += 40;
       }
 
-      //Log do output
+      //Log do output dos valores
       console.log(
         rewardsBridgewoodCounter +
           rewardsLakewoodCounter +
           rewardsRidgewoodCounter
       );
-      break;
+
+      //Verificar se todos os valores a pagar são iguais e retornar o de maior classificacao
+      if (
+        rewardsLakewoodCounter == rewardsBridgewoodCounter &&
+        rewardsLakewoodCounter == rewardsRidgewoodCounter &&
+        rewardsRidgewoodCounter == rewardsBridgewoodCounter
+      ) {
+        return "Ridgewood";
+      }
+
+      //Retornos em caso de serem menores
+
+      //Bridgewood como menor
+      if (
+        rewardsBridgewoodCounter < rewardsLakewoodCounter &&
+        rewardsBridgewoodCounter < rewardsRidgewoodCounter
+      ) {
+        return "Bridgewood";
+      }
+
+      //Ridgewood como menor
+      if (
+        rewardsRidgewoodCounter < rewardsLakewoodCounter &&
+        rewardsRidgewoodCounter < rewardsBridgewoodCounter
+      ) {
+        return "Ridgewood";
+      }
+
+      //Lakewood como menor
+      if (
+        rewardsLakewoodCounter < rewardsBridgewoodCounter &&
+        rewardsLakewoodCounter < rewardsRidgewoodCounter
+      ) {
+        return "Lakewood";
+      }
+
+      //Retornando por maior classificacao quando iguais
+
+      /*     Lakewood é o de menor classificação logo não
+       tem como ter um caso em que seja o de menor classificação  */
+
+      //Bridgewood maior classificacao ao Lakewood
+      if (
+        rewardsLakewoodCounter == rewardsBridgewoodCounter &&
+        rewardsBridgeCounter < rewardsRidgewoodCounter
+      ) {
+        return "Bridgewood";
+      }
+
+      //Ridgewood maior classificação em relacao ao Bridgewood
+      if (
+        rewardsBridgewoodCounter == rewardsRidgewoodCounter &&
+        rewardsBridgewoodCounter < rewardsLakewoodCounter
+      ) {
+        return "Ridgewood";
+      }
+
+      //Ridgewood maior classificação em relação ao Lakewood
+      if (
+        rewardsLakewoodCounter == rewardsRidgewoodCounter &&
+        rewardsLakewoodCounter < rewardsBridgewoodCounter
+      ) {
+        return "Ridgewood";
+      }
   }
 };
 
