@@ -38,9 +38,9 @@ const checkValue = (client, dayCheck, weekEndCheck, checkElement) => {
 
       //Verificar se ha valores a pagar iguais e retornar o de maior classificacao
       if (
-        regularLakewoodCounter === regularBridgewoodCounter &&
-        regularLakewoodCounter === regularRidgewoodCounter &&
-        regularRidgewoodCounter === regularBridgewoodCounter
+        regularLakewoodCounter == regularBridgewoodCounter &&
+        regularLakewoodCounter == regularRidgewoodCounter &&
+        regularRidgewoodCounter == regularBridgewoodCounter
       ) {
         return "Ridgewood";
       }
@@ -64,18 +64,19 @@ const checkValue = (client, dayCheck, weekEndCheck, checkElement) => {
       ) {
         return "Lakewood";
       }
+
       //Retornando por maior classificacao quando iguais
       //Bridgewood maior classificacao
       if (
-        regularLakewoodCounter === regularBridgewoodCounter &&
-        regularLakewoodCounter < regularRidgewoodCounter
+        regularLakewoodCounter == regularBridgewoodCounter &&
+        regularBridgeCounter < regularRidgewoodCounter
       ) {
         return "Bridgewood";
       }
       //Ridgewood maior classificacao
       if (
-        regularBridgewoodCounter === regularRidgewoodCounter &&
-        regularRidgewoodCounter < regularLakewoodCounter
+        regularBridgewoodCounter == regularRidgewoodCounter &&
+        regularBridgewoodCounter < regularLakewoodCounter
       ) {
         return "Ridgewood";
       }
