@@ -1,9 +1,4 @@
 const checkValue = (client, dayCheck, weekEndCheck, checkElement) => {
-  //Classificacao de cada hotel
-  const classLake = 3;
-  const classBridge = 4;
-  const classRidge = 5;
-
   switch (client) {
     case "Regular":
       let regularLakewoodCounter = 0;
@@ -49,6 +44,26 @@ const checkValue = (client, dayCheck, weekEndCheck, checkElement) => {
       ) {
         return "Ridgewood";
       }
+
+      //Retornos em caso de serem menores
+      if (
+        regularBridgewoodCounter < regularLakewoodCounter &&
+        regularBridgewoodCounter < regularRidgewoodCounter
+      ) {
+        return "Bridgewood";
+      }
+      if (
+        regularRidgewoodCounter < regularLakewoodCounter &&
+        regularRidgewoodCounter < regularBridgewoodCounter
+      ) {
+        return "Ridgewood";
+      }
+      if (
+        regularLakewoodCounter < regularBridgewoodCounter &&
+        regularLakewoodCounter < regularRidgewoodCounter
+      ) {
+        return "Lakewood";
+      }
       break;
 
     case "Rewards":
@@ -89,4 +104,4 @@ const checkValue = (client, dayCheck, weekEndCheck, checkElement) => {
   }
 };
 
-export default checkValue;
+module.exports = checkValue;
