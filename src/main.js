@@ -1,3 +1,15 @@
+/* 
+                            DISCLAIMER
+  O documento diz : "Utilize 'Regular' para denominar um cliente normal 
+  e 'Reward' para um cliente participante do programa de fidelidade."   
+  
+  No entanto o parâmetro para um cliente que participa de um programa
+  de fidelidade está definido como "Rewards", no plural, 
+  no arquivo failing-test-spec.js, portanto esta é a razão pelo qual 
+  utilizei "Rewards" como caso para o Switch-Case para a verificação do tipo 
+  de cliente na função "checkValue".
+                                                                        */
+
 const checkValue = require("./checkValue");
 
 function getCheapestHotel(input) {
@@ -9,19 +21,13 @@ function getCheapestHotel(input) {
   //Separa cada elemento separado por virgula
   const days = input.split(",");
 
-  //Separa o primeiro elemento da string, o tipo de cliente normal ou fiel
+  //Separa o primeiro elemento da string, o tipo de cliente Regular ou Rewards
   const clientType = input.split(":")[0];
 
-  //Separa cada elemento separado para achar o dia entre parenteses
-  console.log(clientType);
-
-  //Dias para verificacao dos valores
-  const weekDays = /mon|tues|wed|thur|fri/;
-  const weekEnd = /sat|sun/;
-
-  checkValue(clientType, weekDays, weekEnd, days[0]);
-  checkValue(clientType, weekDays, weekEnd, days[1]);
-  return checkValue(clientType, weekDays, weekEnd, days[2]);
+  //Inicialização das comaprações
+  checkValue(clientType, days[0]);
+  checkValue(clientType, days[1]);
+  return checkValue(clientType, days[2]);
 }
 
 exports.getCheapestHotel = getCheapestHotel;

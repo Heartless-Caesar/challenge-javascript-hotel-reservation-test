@@ -1,4 +1,8 @@
-const checkValue = (client, dayCheck, weekEndCheck, checkElement) => {
+const checkValue = (client, checkElement) => {
+  //Dias para verificacao dos valores
+  const weekDays = /mon|tues|wed|thur|fri/;
+  const weekEnd = /sat|sun/;
+
   //Switch-case para verificar o tipo de cliente
   switch (client) {
     case "Regular":
@@ -8,7 +12,7 @@ const checkValue = (client, dayCheck, weekEndCheck, checkElement) => {
       let regularBridgewoodCounter = 0;
 
       //Verifica se ha dias úteis da semana no ciclo de hospedagem
-      let regularMatchWeekDay = dayCheck.test(checkElement);
+      let regularMatchWeekDay = weekDays.test(checkElement);
 
       //Registra o valor total dos dias uteis de hospedagem
       if (regularMatchWeekDay) {
@@ -18,7 +22,7 @@ const checkValue = (client, dayCheck, weekEndCheck, checkElement) => {
       }
 
       // Verifica se ha dias do final de semana no ciclo de hospedagem
-      let regularMatchWeekEnd = weekEndCheck.test(checkElement);
+      let regularMatchWeekEnd = weekEnd.test(checkElement);
 
       /*
            Registra o valor total dos dias do final
@@ -105,7 +109,7 @@ const checkValue = (client, dayCheck, weekEndCheck, checkElement) => {
       let rewardsBridgewoodCounter = 0;
 
       //Verifica se ha dias úteis da semana como parametro
-      let rewardsMatchWeekDay = dayCheck.test(checkElement);
+      let rewardsMatchWeekDay = weekDays.test(checkElement);
 
       //Registra o valor total dos dias uteis de hospedagem
       if (rewardsMatchWeekDay) {
@@ -117,7 +121,7 @@ const checkValue = (client, dayCheck, weekEndCheck, checkElement) => {
       /* 
            Verifica se ha dias do final de semana
            no ciclo de hospedagem                 */
-      const rewardsMatchWeekEnd = weekEndCheck.test(checkElement);
+      const rewardsMatchWeekEnd = weekEnd.test(checkElement);
 
       /*
            Registra o valor total dos dias do final
