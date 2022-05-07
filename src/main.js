@@ -1,5 +1,5 @@
 /* 
-                            DISCLAIMER
+                            AVISO
   O documento diz : "Utilize 'Regular' para denominar um cliente normal 
   e 'Reward' para um cliente participante do programa de fidelidade."   
   

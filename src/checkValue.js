@@ -1,3 +1,5 @@
+const regularCompare = require("./regularCompare");
+const rewardsCompare = require("./rewardsCompare");
 const checkValue = (client, checkElement) => {
   //Dias para verificacao dos valores
   const weekDays = /mon|tues|wed|thur|fri/;
@@ -33,74 +35,15 @@ const checkValue = (client, checkElement) => {
         regularRidgewoodCounter += 150;
       }
 
-      //Log do output
-      console.log(
-        regularBridgewoodCounter +
-          regularLakewoodCounter +
-          regularRidgewoodCounter
+      return regularCompare(
+        regularLakewoodCounter,
+        regularBridgewoodCounter,
+        regularRidgewoodCounter
       );
 
-      //Verificar se todos os valores a pagar são iguais e retornar o de maior classificacao
-      if (
-        regularLakewoodCounter == regularBridgewoodCounter &&
-        regularLakewoodCounter == regularRidgewoodCounter &&
-        regularRidgewoodCounter == regularBridgewoodCounter
-      ) {
-        return "Ridgewood";
-      }
+    /* -------------------------------------------------------- */
 
-      /* Retornos em caso de serem menores */
-
-      //Bridgewood como menor
-      if (
-        regularBridgewoodCounter < regularLakewoodCounter &&
-        regularBridgewoodCounter < regularRidgewoodCounter
-      ) {
-        return "Bridgewood";
-      }
-      //Ridgewood como menor
-      if (
-        regularRidgewoodCounter < regularLakewoodCounter &&
-        regularRidgewoodCounter < regularBridgewoodCounter
-      ) {
-        return "Ridgewood";
-      }
-      //Lakewood como menor
-      if (
-        regularLakewoodCounter < regularBridgewoodCounter &&
-        regularLakewoodCounter < regularRidgewoodCounter
-      ) {
-        return "Lakewood";
-      }
-
-      //Retornando por maior classificacao quando iguais
-
-      /*     Lakewood é o de menor classificação logo não
-       tem como ter um caso em que seja o de menor classificação  */
-
-      //Bridgewood maior classificacao em relacao ao Lakewood
-      if (
-        regularLakewoodCounter == regularBridgewoodCounter &&
-        regularBridgeCounter < regularRidgewoodCounter
-      ) {
-        return "Bridgewood";
-      }
-
-      //Ridgewood maior classificacao em relacao ao Bridgewood
-      if (
-        regularBridgewoodCounter == regularRidgewoodCounter &&
-        regularBridgewoodCounter < regularLakewoodCounter
-      ) {
-        return "Ridgewood";
-      }
-
-      //Ridgewood maior classificação em relação ao Lakewood
-      if (
-        rewardsLakewoodCounter == rewardsRidgewoodCounter &&
-        rewardsLakewoodCounter < rewardsBridgewoodCounter
-      ) {
-        return "Ridgewood";
-      }
+    /*           Comparações de cliente tipo Rewards           */
 
     case "Rewards":
       //Contadores para cliente do tipo Rewards
@@ -132,76 +75,11 @@ const checkValue = (client, checkElement) => {
         rewardsRidgewoodCounter += 40;
       }
 
-      //Log do output dos valores
-      console.log(
-        rewardsBridgewoodCounter +
-          rewardsLakewoodCounter +
-          rewardsRidgewoodCounter
+      return rewardsCompare(
+        rewardsLakewoodCounter,
+        rewardsBridgewoodCounter,
+        rewardsRidgewoodCounter
       );
-
-      //Verificar se todos os valores a pagar são iguais e retornar o de maior classificacao
-      if (
-        rewardsLakewoodCounter == rewardsBridgewoodCounter &&
-        rewardsLakewoodCounter == rewardsRidgewoodCounter &&
-        rewardsRidgewoodCounter == rewardsBridgewoodCounter
-      ) {
-        return "Ridgewood";
-      }
-
-      //Retornos em caso de serem menores
-
-      //Bridgewood como menor
-      if (
-        rewardsBridgewoodCounter < rewardsLakewoodCounter &&
-        rewardsBridgewoodCounter < rewardsRidgewoodCounter
-      ) {
-        return "Bridgewood";
-      }
-
-      //Ridgewood como menor
-      if (
-        rewardsRidgewoodCounter < rewardsLakewoodCounter &&
-        rewardsRidgewoodCounter < rewardsBridgewoodCounter
-      ) {
-        return "Ridgewood";
-      }
-
-      //Lakewood como menor
-      if (
-        rewardsLakewoodCounter < rewardsBridgewoodCounter &&
-        rewardsLakewoodCounter < rewardsRidgewoodCounter
-      ) {
-        return "Lakewood";
-      }
-
-      //Retornando por maior classificacao quando iguais
-
-      /*     Lakewood é o de menor classificação logo não
-       tem como ter um caso em que seja o de menor classificação  */
-
-      //Bridgewood maior classificacao ao Lakewood
-      if (
-        rewardsLakewoodCounter == rewardsBridgewoodCounter &&
-        rewardsBridgeCounter < rewardsRidgewoodCounter
-      ) {
-        return "Bridgewood";
-      }
-
-      //Ridgewood maior classificação em relacao ao Bridgewood
-      if (
-        rewardsBridgewoodCounter == rewardsRidgewoodCounter &&
-        rewardsBridgewoodCounter < rewardsLakewoodCounter
-      ) {
-        return "Ridgewood";
-      }
-
-      //Ridgewood maior classificação em relação ao Lakewood
-      if (
-        rewardsLakewoodCounter == rewardsRidgewoodCounter &&
-        rewardsLakewoodCounter < rewardsBridgewoodCounter
-      ) {
-        return "Ridgewood";
-      }
   }
 };
 
